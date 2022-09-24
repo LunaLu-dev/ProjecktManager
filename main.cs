@@ -31,8 +31,7 @@ class ProjecktManager{
             if      (input == "1"){inputT = "C#";}
             else if (input == "2"){inputT = "C++";}
             else if (input == "3"){inputT = "Python";}
-            else if (input == "4"){inputT = "Java";}
-            else if (input == "5"){inputT = "Web";}
+            else if (input == "4"){inputT = "Web";}
             Console.Clear();
             Console.WriteLine("You have selected " + input + " (" + inputT + ")");
 
@@ -122,6 +121,41 @@ class ProjecktManager{
                         Console.WriteLine("Created New Directory " + path + @"\" + name + @"\");
                         File.Copy(Directory.GetCurrentDirectory() + @"\templates\windows\py\main.py", path + @"\" + name + @"\");
                         Console.WriteLine("Created New File " + path + @"\" + name + @"\main.py");
+                        Console.WriteLine("Done you're all good!");
+                        Thread.Sleep(800);
+                        Environment.Exit(0);
+                    }
+                    else{
+                        Console.WriteLine("Projeckt Folder Does not exists");
+                        Thread.Sleep(500);
+                        Console.Clear();
+                        Main();
+                    }
+                }
+                else{
+                    Console.WriteLine("File Already Exists");
+                    Thread.Sleep(500);
+                    Console.Clear();
+                    Main();
+                }
+            }
+            else if(input == "4") {
+                Console.WriteLine("What's the path of the projeckts folder?");
+                string path = Console.ReadLine();
+                Console.WriteLine("What's the name of the projeckt?");
+                string name = Console.ReadLine();
+                
+                if (File.Exists(path + @"\" + name + @"/index.html") == false) {
+                    if (Directory.Exists(path)){
+                        //creating files
+                        Directory.CreateDirectory(path + @"\" + name);
+                        Console.WriteLine("Created New Directory " + path + @"\" + name + @"\");
+                        File.Copy(Directory.GetCurrentDirectory() + @"\templates\windows\web\index.html", path + @"\" + name + @"\");
+                        File.Copy(Directory.GetCurrentDirectory() + @"\templates\windows\web\style.css", path + @"\" + name + @"\");
+                        File.Copy(Directory.GetCurrentDirectory() + @"\templates\windows\web\script.js", path + @"\" + name + @"\");
+                        Console.WriteLine("Created New File " + path + @"\" + name + @"\index.html");
+                        Console.WriteLine("Created New File " + path + @"\" + name + @"\style.css");
+                        Console.WriteLine("Created New File " + path + @"\" + name + @"\scipt.js");
                         Console.WriteLine("Done you're all good!");
                         Thread.Sleep(800);
                         Environment.Exit(0);
