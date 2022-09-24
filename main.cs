@@ -54,7 +54,7 @@ class ProjecktManager{
                         Console.WriteLine("Created New File " + path + @"\" + name + @"\compiler.bat");
                         if (File.Exists(@"C:\Windows\Microsoft.NET\Framework\v3.5\csc.exe") == false) {
                             Console.WriteLine("");
-                            Console.WriteLine("!!! WARNING, for the compiler to work you need to have microsoft .NET 3.5 installed !!!")
+                            Console.WriteLine("!!! WARNING, for the compiler to work you need to have microsoft .NET 3.5 installed !!!");
                             Console.WriteLine("This can be installed at");
                             Console.WriteLine("https://www.microsoft.com/en-us/download/details.aspx?id=21");
                         }
@@ -78,7 +78,7 @@ class ProjecktManager{
                     Main();
                 }
             }//C++
-            else if (input == 2) {
+            else if (input == "2") {
                 Console.WriteLine("What's the path of the projeckts folder?");
                 string path = Console.ReadLine();
                 Console.WriteLine("What's the name of the projeckt?");
@@ -109,7 +109,7 @@ class ProjecktManager{
                     Main();
                 }
             }
-            else if (input == 3) {
+            else if (input == "3") {
                 Console.WriteLine("What's the path of the projeckts folder?");
                 string path = Console.ReadLine();
                 Console.WriteLine("What's the name of the projeckt?");
