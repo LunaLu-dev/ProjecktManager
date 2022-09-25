@@ -7,12 +7,13 @@ class ProjecktManager{
 
         string input = "";
         string inputT = "";
+        string path = "";
 
         Console.WriteLine("--- Welcome To Projeckt Manager ---");
         Console.WriteLine("--- Made By Luna Nordbergh ---");
         Console.WriteLine("");
         Console.WriteLine("What Projeckt do you want to create?");
-        Console.WriteLine("1. Dev, 2. YouTube (WIP), 3. TikTok (WIP)");
+        Console.WriteLine("1. Dev, 2. YouTube (WIP), 3. TikTok (WIP), 4.Settings (WIP)");
         input = Console.ReadLine();
         //converts input to from a number to text
         if      (input == "1"){inputT = "Dev";}
@@ -35,12 +36,24 @@ class ProjecktManager{
             Console.Clear();
             Console.WriteLine("You have selected " + input + " (" + inputT + ")");
 
+            Console.WriteLine("What's the name of the projeckt?");
+                string name = Console.ReadLine();
+
+                //Checking and adding data directory
+                if (File.Exists(Directory.GetCurrentDirectory() + @"\data\path.txt") == false){
+                    if (File.Exists(Directory.GetCurrentDirectory() + @"\data") == false){
+                        Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\data");
+                        Console.WriteLine("Added Directory " + Directory.GetCurrentDirectory() + @"\data");
+                    }
+                    File.Create(Directory.GetCurrentDirectory() + @"\data\path.txt");
+                    Console.WriteLine("What's the path of the projeckts folder? (You only need to add this one time)");
+                    path = Console.ReadLine();
+                    File.WriteAllText(Directory.GetCurrentDirectory() + @"\data\path.txt", path);
+                    path = File.ReadAllText(Directory.GetCurrentDirectory() + @"\data\path.txt");
+                }
+
             //C#
             if (input == "1"){
-                Console.WriteLine("What's the path of the projeckts folder?");
-                string path = Console.ReadLine();
-                Console.WriteLine("What's the name of the projeckt?");
-                string name = Console.ReadLine();
                 
                 if (File.Exists(path + @"\" + name + @"/main.cs") == false) {
                     if (Directory.Exists(path)){
@@ -52,6 +65,7 @@ class ProjecktManager{
                         File.Copy(Directory.GetCurrentDirectory() + @"\templates\windows\cs\compiler.bat", path + @"\" + name + @"\");
                         Console.WriteLine("Created New File " + path + @"\" + name + @"\compiler.bat");
                         if (File.Exists(@"C:\Windows\Microsoft.NET\Framework\v3.5\csc.exe") == false) {
+                            //built in compiler not found
                             Console.WriteLine("");
                             Console.WriteLine("!!! WARNING, for the compiler to work you need to have microsoft .NET 3.5 installed !!!");
                             Console.WriteLine("This can be installed at");
@@ -64,6 +78,7 @@ class ProjecktManager{
                         Environment.Exit(0);
                     }
                     else{
+                        //ERRoR no avalible path
                         Console.WriteLine("Projeckt Folder Does not exists");
                         Thread.Sleep(500);
                         Console.Clear();
@@ -71,6 +86,7 @@ class ProjecktManager{
                     }
                 }
                 else{
+                    //ERRoR File Already Exists
                     Console.WriteLine("File Already Exists");
                     Thread.Sleep(500);
                     Console.Clear();
@@ -78,10 +94,6 @@ class ProjecktManager{
                 }
             }//C++
             else if (input == "2") {
-                Console.WriteLine("What's the path of the projeckts folder?");
-                string path = Console.ReadLine();
-                Console.WriteLine("What's the name of the projeckt?");
-                string name = Console.ReadLine();
                 
                 if (File.Exists(path + @"\" + name + @"/main.cpp") == false) {
                     if (Directory.Exists(path)){
@@ -109,10 +121,6 @@ class ProjecktManager{
                 }
             }
             else if (input == "3") {
-                Console.WriteLine("What's the path of the projeckts folder?");
-                string path = Console.ReadLine();
-                Console.WriteLine("What's the name of the projeckt?");
-                string name = Console.ReadLine();
                 
                 if (File.Exists(path + @"\" + name + @"/main.py") == false) {
                     if (Directory.Exists(path)){
@@ -140,10 +148,6 @@ class ProjecktManager{
                 }
             }
             else if(input == "4") {
-                Console.WriteLine("What's the path of the projeckts folder?");
-                string path = Console.ReadLine();
-                Console.WriteLine("What's the name of the projeckt?");
-                string name = Console.ReadLine();
                 
                 if (File.Exists(path + @"\" + name + @"/index.html") == false) {
                     if (Directory.Exists(path)){
