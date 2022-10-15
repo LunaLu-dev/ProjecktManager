@@ -1,3 +1,3 @@
 #!/bin/python3
 
-echo Hello World!
+print("Hello World!")
