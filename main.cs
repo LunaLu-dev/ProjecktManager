@@ -119,9 +119,8 @@ class ProjecktManager{
                     Console.Clear();
                     Main();
                 }
-            }
+            }//Python
             else if (input == "3") {
-                
                 if (File.Exists(path + @"\" + name + @"/main.py") == false) {
                     if (Directory.Exists(path)){
                         //creating files
@@ -146,9 +145,8 @@ class ProjecktManager{
                     Console.Clear();
                     Main();
                 }
-            }
+            }//WEB (html, css, javascript)
             else if(input == "4") {
-                
                 if (File.Exists(path + @"\" + name + @"/index.html") == false) {
                     if (Directory.Exists(path)){
                         //creating files
