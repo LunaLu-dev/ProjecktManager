@@ -37,20 +37,20 @@ class ProjecktManager{
             Console.WriteLine("You have selected " + input + " (" + inputT + ")");
 
             Console.WriteLine("What's the name of the projeckt?");
-                string name = Console.ReadLine();
+            string name = Console.ReadLine();
 
-                //Checking and adding data directory
-                if (File.Exists(Directory.GetCurrentDirectory() + @"\data\path.txt") == false){
-                    if (File.Exists(Directory.GetCurrentDirectory() + @"\data") == false){
-                        Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\data");
-                        Console.WriteLine("Added Directory " + Directory.GetCurrentDirectory() + @"\data");
-                    }
-                    File.Create(Directory.GetCurrentDirectory() + @"\data\path.txt");
-                    Console.WriteLine("What's the path of the projeckts folder? (You only need to add this one time)");
-                    path = Console.ReadLine();
-                    File.WriteAllText(Directory.GetCurrentDirectory() + @"\data\path.txt", path);
-                    path = File.ReadAllText(Directory.GetCurrentDirectory() + @"\data\path.txt");
+            //Checking and adding data directory
+            if (File.Exists(Directory.GetCurrentDirectory() + @"\data\path.txt") == false){
+                if (File.Exists(Directory.GetCurrentDirectory() + @"\data") == false){
+                    Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\data");
+                    Console.WriteLine("Added Directory " + Directory.GetCurrentDirectory() + @"\data");
                 }
+                File.Create(Directory.GetCurrentDirectory() + @"\data\path.txt");
+                Console.WriteLine("What's the path of the projeckts folder? (You only need to add this one time)");
+                path = Console.ReadLine();
+                File.WriteAllText(Directory.GetCurrentDirectory() + @"\data\path.txt", path);
+                path = File.ReadAllText(Directory.GetCurrentDirectory() + @"\data\path.txt");
+            }
 
             //C#
             if (input == "1"){
